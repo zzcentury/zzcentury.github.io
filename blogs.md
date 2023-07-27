@@ -8,5 +8,5 @@ title: Blogs
 
 ### 2023
 
-- [test](https://ch4nc3n.github.io/blogs/test)
+- [通过虚拟机调试获取Root Shell](https://ch4nc3n.github.io/blogs/GetRootShell)
 
