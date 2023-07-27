@@ -4,4 +4,4 @@ layout: page
 
 # About Me
 
-Here is **Chencan**.
+Here is **Chancen**.
