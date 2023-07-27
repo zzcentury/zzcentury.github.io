@@ -1,21 +1,21 @@
-title: Hanlin Cai
+title: Chancen
 # tagline: Two roads diverged in woods, I took the one less traveled by.
-description: Two roads diverged in woods, I took the one less traveled by.
+description: 去二十二世纪.
 #Comment out url when working locally to resolve base urls correctly
-url: https://caihanlin.com
+url: https://ch4nc3n.github.io/
 
 # Owner/author information
 owner:
-  name: Hanlin Cai
-  avatar: hanlin.jpg
+  name: Chancen
+  avatar: avatar.jpg
 #  bio:
-  email: hanlin.cai@ieee.org
+  email: sunshinefly1995@gmail.com
   # Social networking links are used in author-bio sidebar. Update and remove as you like.
-  twitter: lancecai2002
+  twitter: none
   # facebook: caihanlin2002
-  github: GuangLun2000
-  linkedin: hanlin-cai-07b53b23b
-  scholar: https://scholar.google.com/citations?user=8igSoWgAAAAJ
+  github: Ch4nc3n
+  linkedin: none
+  scholar: none
   # instagram: lancecai2002
   # lastfm:
   # tumblr:
@@ -34,21 +34,21 @@ google_verify: "SkiyuGpJOKT74vv5GmXLvYXXDkXy4v8VWPtbelYz3Hs"
 links:
   - title: About Me
     url: /
-  - title: Resume
-    url: /file/Resume-HanlinCAI.pdf
-  - title: Publications
-    url: /publications/
-  - title: Projects
-    url: /projects/
-  - title: Awards
-    url: /awards/
-  - title: Hobbies
-    url: /hobbies/
+  # - title: Resume
+  #   url: /file/Resume-HanlinCAI.pdf
+  # - title: Publications
+  #   url: /publications/
+  # - title: Projects
+  #   url: /projects/
+  # - title: Awards
+  #   url: /awards/
+  # - title: Hobbies
+  #   url: /hobbies/
   - title: Blogs
     url: /blogs/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone: China/Beijing
+timezone: China
 future: true
 highlighter: rouge
 # markdown: kramdown
