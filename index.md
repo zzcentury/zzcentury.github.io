@@ -18,4 +18,4 @@ Here is **Chancen**.<br/>
 本博客全部文章遵循 CC-BY-SA-4.0 协议。<br/>
 https://creativecommons.org/licenses/by-sa/4.0/<br/><br/>
 欢迎关注我的微信公众号！<br/>
-![qrcode_for_gh_9faed1326cfd_258](./Images/qrcode_for_gh_9faed1326cfd_258.jpg)
+![qrcode_for_gh_9faed1326cfd_258](Images/qrcode_for_gh_9faed1326cfd_258.jpg)
