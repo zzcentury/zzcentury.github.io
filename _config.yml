@@ -45,7 +45,7 @@ links:
   - title: Blogs
     url: /blogs/
   - title: Clustrmaps
-    url: clustrmaps
+    url: /clustrmaps/
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 timezone: China
