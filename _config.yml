@@ -42,8 +42,8 @@ links:
   #   url: /projects/
   # - title: Awards
   #   url: /awards/
-  # - title: Hobbies
-  #   url: /hobbies/
+  - title: Clustrmaps
+    url: /clustrmaps/
   - title: Blogs
     url: /blogs/
 
