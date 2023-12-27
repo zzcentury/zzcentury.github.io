@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 ## Microsoft
 
     CVE-2022-38050
