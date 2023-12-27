@@ -1,5 +1,7 @@
 ---
 layout: page
+permalink: /achievement/index.html
+title: Achievement
 ---
 
 ## Microsoft
