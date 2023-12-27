@@ -6,7 +6,7 @@ title: Blogs
 
 ## Blogs
 
-- [CVE](https://ch4nc3n.github.io/blogs/Achievement)
+<!-- - [CVE](https://ch4nc3n.github.io/blogs/Achievement) -->
 
 ### 2023
 
