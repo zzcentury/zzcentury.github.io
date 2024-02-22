@@ -8,6 +8,10 @@ title: Blogs
 
 <!-- - [CVE](https://ch4nc3n.github.io/blogs/Achievement) -->
 
+### 2024
+
+- [2024.02.22 Ivanti Avalanche WLInfoRailService 未授权堆溢出漏洞](https://ch4nc3n.github.io/blogs/Ivanti_WLInfoRailService_dos)
+
 ### 2023
 
 - [2023.12.27 Pulse Policy Secure 授权后任意文件读取漏洞](https://ch4nc3n.github.io/blogs/Pulse_Policy_Secure_arbitrary_file_read_vulnerability)
