@@ -3,13 +3,9 @@
 ### 漏洞描述
 
 Ivanti Avalanche(6.4.2.313) WLInfoRailService服务中存在一个整数溢出漏洞，未授权的远程攻击者可以在受影响的Ivanti Avalanche系统中造成堆溢出漏洞。<br>
-
 版本信息:<br>
-
 Ivanti Avalanche	:  6.4.2.313<br>
-
 文件名: Ivanti-Avalanche_windows-x64_6_4_2_313.exe<br>
-
 下载链接 : https://download.wavelink.com/Files/Ivanti-Avalanche_windows-x64_6_4_2_313.exe<br>
 
 ### 漏洞细节
@@ -71,9 +67,7 @@ signed int __thiscall sub_40F880(char *this, message_header_struct *message_head
 ```
 
 message_header_struct结构体的数据攻击者完全可控。<br>
-
 message_header_struct->size_v2没有做校验，在进行加法运算时可以造成整数溢出。<br>
-
 之后会利用 message_header_struct->size_v2 的值进行堆块分配，并进行数据拷贝，造成堆溢出漏洞。<br>
 
 ### 漏洞利用
