@@ -24,3 +24,4 @@ title: Blogs
 ### 2021
 
 - [2021.10.12 Windows Win32k 越界写权限提升漏洞](https://ch4nc3n.github.io/blogs/CVE-2021-40450)
+- [2021.05.11 Foxit Reader browseForDoc 越界写远程代码执行漏洞](https://ch4nc3n.github.io/blogs/CVE-2021-31473)
