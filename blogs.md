@@ -19,6 +19,7 @@ title: Blogs
 
 ### 2022
 
+- [2022.10.11 Windows Win32k UAF本地提权漏洞](https://ch4nc3n.github.io/blogs/CVE-2022-38050)
 - [2022.06.21 OpenSSL 命令注入漏洞](https://ch4nc3n.github.io/blogs/CVE-2022-2068)
 
 ### 2021
