@@ -1,4 +1,4 @@
-## NETGEAR R7000P Httpd quick_qos_edit_serv.cgi 栈溢出远程代码执行漏洞
+## Netgear R7000P Httpd quick_qos_edit_serv.cgi 栈溢出远程代码执行漏洞
 
 ### Vulnerability description
 
