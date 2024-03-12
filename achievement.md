@@ -34,8 +34,7 @@ title: Achievement
     CVE-2023-45625
     CVE-2023-45627
     CVE-2024-25615
-    CVE-2024-25615
-    
+
 ## Netgear
 
     PSV-2023-0067
