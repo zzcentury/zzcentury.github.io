@@ -38,3 +38,7 @@ title: Achievement
 ## Netgear
 
     PSV-2023-0067
+
+## Ivanti
+
+    CVE-2023-39340
