@@ -3,7 +3,9 @@
 ### 1.Vulnerability description
 
 A authenticated remote command injection vulnerability exists in Netgear WAC104, which can be exploited by an authenticated remote attacker to cause Remote command execution (RCE) on an affected Netgear WAC104.<br>
+<br>
 The vulnerability exists in the latest firmware version ： WAC104-V1.0.4.21.img<br>
+<br>
 Firmware download address : https://www.downloads.netgear.com/files/GDC/WAC104/WAC104_firmware_V1.0.4.21.zip?_ga=2.248054530.446711973.1711967533-1975873394.1711967533<br>
 
 ### 2.Vulnerability details
