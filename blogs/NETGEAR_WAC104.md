@@ -3,17 +3,12 @@
 ### 1.Vulnerability description
 
 A authenticated remote command injection vulnerability exists in Netgear WAC104, which can be exploited by an authenticated remote attacker to cause Remote command execution (RCE) on an affected Netgear WAC104.<br>
-
-
-
 The vulnerability exists in the latest firmware version ： WAC104-V1.0.4.21.img<br>
-
 Firmware download address : https://www.downloads.netgear.com/files/GDC/WAC104/WAC104_firmware_V1.0.4.21.zip?_ga=2.248054530.446711973.1711967533-1975873394.1711967533<br>
 
 ### 2.Vulnerability details
 
 The vulnerability is in the /usr/sbin/setup.cgi file.<br>
-
 The vulnerability occurs in the function that handles the todo=wifi_test.<br>
 
 ```
@@ -44,7 +39,6 @@ The mod parameter is controlled by the attacker, and then a call to the COMMAND 
 ### 3.Vulnerability exploitation
 
 The effect of the current exploitation is command injection.<br>
-
 I got the root shell by executing the following command.<br>
 
 ```
