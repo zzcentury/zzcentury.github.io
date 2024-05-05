@@ -10,7 +10,7 @@ title: Blogs
 
 ### 2024
 
-<!-- - [2024.04.13 Netgear WAC104 授权后命令注入漏洞](https://zzcentury.github.io/blogs/NETGEAR_WAC104) -->
+- [2024.04.13 Netgear WAC104 授权后命令注入漏洞](https://zzcentury.github.io/blogs/NETGEAR_WAC104)
 - [2024.02.22 Ivanti Avalanche WLInfoRailService 未授权堆溢出漏洞](https://zzcentury.github.io/blogs/Ivanti_WLInfoRailService_dos)
 
 ### 2023
