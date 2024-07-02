@@ -3,13 +3,10 @@
 ### 1.Vulnerability description
 
 The specific flaw exists within the handling of HNAP login requests. The issue results from the lack of proper implementation of the authentication algorithm. An attacker can leverage this vulnerability to escalate privileges and execute code in the context of the router.<br>
-
+<br>
 This vulnerability allows network-adjacent attackers to bypass authentication on affected installations of DIR-X4860 routers. Authentication is not required to exploit this vulnerability.<br>
-
-
-
 The vulnerability exists in the latest firmware version ： DIRX4860A1_FWV1.04B03.bin<br>
-
+<br>
 Firmware download address : https://support.dlink.com/ProductInfo.aspx?m=DIR-X4860-US<br>
 
 ### 2.Vulnerability details
@@ -54,13 +51,11 @@ The response data are as follows:<br>
 ```
 
 The response packet returns Challenge, Cookie, PublicKey.<br>
-
+<br>
 The Cookie is used as the cookie header for all subsequent http requests.<br>
-
+<br>
 Challenge and PublicKey are used to encrypt the password and generate HNAP_AUTH authentication in the http header.<br>
-
-
-
+<br>
 Step 2: Send the login login and wait for the response.<br>
 The requested packet format is as follows:<br>
 
@@ -115,13 +110,13 @@ The response data are as follows:<br>
 ```
 
 If the value of LoginResult is success, the authentication succeeds.<br>
-
+<br>
 If LoginResult is failed, authentication fails.<br>
 
 #### 2.2 Vulnerability analysis
 
 The vulnerability is in the /bin/prog.cgi file.<br>
-
+<br>
 The vulnerability occurs in the function that handles the login request.<br>
 
 ```
@@ -198,11 +193,11 @@ int __fastcall handle_login_request(int a1)
 ```
 
 The normal logic in the handle_login_request function is to get the http_password and then generate the PrivateKey from the http_password.<br>
-
+<br>
 However, when the PrivateLogin parameter is included in the request, and the value of the PrivateLogin parameter is "Username", then the PrivateKey is generated from the value of the Username parameter.<br>
-
+<br>
 The Username parameter has a known value of "Admin".<br>
-
+<br>
 This means that when you perform a login login request, you can use "Admin" as the password to calculate the relevant data without knowing the real password:<br>
 
 ```
