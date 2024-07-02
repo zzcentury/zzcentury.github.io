@@ -10,6 +10,7 @@ title: Blogs
 
 ### 2024
 
+- [2024.07.02 D-Link DIR-X4860 认证绕过漏洞](https://zzcentury.github.io/blogs/DLink_DIR_X4860_Authentication_Bypass)
 - [2024.04.13 Netgear WAC104 授权后命令注入漏洞](https://zzcentury.github.io/blogs/NETGEAR_WAC104)
 - [2024.02.22 Ivanti Avalanche WLInfoRailService 未授权堆溢出漏洞](https://zzcentury.github.io/blogs/Ivanti_WLInfoRailService_dos)
 
