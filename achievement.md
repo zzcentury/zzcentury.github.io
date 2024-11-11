@@ -77,3 +77,5 @@ title: Achievement
 ## Ivanti
 
     CVE-2023-39340
+    CVE-2024-47909
+    CVE-2024-47905
