@@ -81,3 +81,7 @@ title: Achievement
     CVE-2023-39340
     CVE-2024-47909
     CVE-2024-47905
+
+## Dell
+
+    CVE-2024-49560
