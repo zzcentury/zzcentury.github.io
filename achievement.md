@@ -85,3 +85,4 @@ title: Achievement
 ## Dell
 
     CVE-2024-49560
+    CVE-2024-53296
