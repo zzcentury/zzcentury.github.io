@@ -21,7 +21,8 @@ title: Achievement
 ## Aruba
 <div style="display:none"> 
 2024 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04678en_us&docLocale=en_US 
-</div> 
+</div>
+
     CVE-2023-45614
     CVE-2023-45615
     CVE-2023-45616
@@ -89,7 +90,8 @@ title: Achievement
 2024 https://www.dell.com/support/kbdoc/en-ph/000247217/dsa-2024-425-security-update-for-dell-networking-os10-vulnerabilities
 2024 https://www.dell.com/support/kbdoc/en-us/000279157/dsa-2025-022-security-update-for-dell-powerprotect-dd-multiple-vulnerabilities   
 2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities 
-</div> 
+</div>
+
     CVE-2024-53296
     CVE-2024-49560
     CVE-2024-49561
