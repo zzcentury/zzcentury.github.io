@@ -86,3 +86,6 @@ title: Achievement
 
     CVE-2024-49560
     CVE-2024-53296
+<!-- 2025 -->
+    CVE-2024-49561
+<!-- https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities -->
