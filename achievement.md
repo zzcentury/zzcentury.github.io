@@ -83,11 +83,7 @@ title: Achievement
     CVE-2024-47905
 
 ## Dell
-[//]:(2024 https://www.dell.com/support/kbdoc/en-ph/000247217/dsa-2024-425-security-update-for-dell-networking-os10-vulnerabilities)
-    CVE-2024-49560 
-[//]:(2024 https://www.dell.com/support/kbdoc/en-us/000279157/dsa-2025-022-security-update-for-dell-powerprotect-dd-multiple-vulnerabilities)
-    CVE-2024-53296 
-[//]:(2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities)
-    CVE-2024-49561 
-<div style="display:none"> 这是一段被注释掉的文字 </div>
-    test 
+[//]:(2024 https://www.dell.com/support/kbdoc/en-ph/000247217/dsa-2024-425-security-update-for-dell-networking-os10-vulnerabilities) CVE-2024-49560
+[//]:(2024 https://www.dell.com/support/kbdoc/en-us/000279157/dsa-2025-022-security-update-for-dell-powerprotect-dd-multiple-vulnerabilities) CVE-2024-53296
+[//]:(2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities) CVE-2024-49561
+<div style="display:none"> 这是一段被注释掉的文字 </div> test
