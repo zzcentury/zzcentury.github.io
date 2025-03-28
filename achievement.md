@@ -90,8 +90,20 @@ title: Achievement
 2024 https://www.dell.com/support/kbdoc/en-ph/000247217/dsa-2024-425-security-update-for-dell-networking-os10-vulnerabilities
 2024 https://www.dell.com/support/kbdoc/en-us/000279157/dsa-2025-022-security-update-for-dell-powerprotect-dd-multiple-vulnerabilities   
 2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities 
+2025 https://www.dell.com/support/kbdoc/en-us/000300090/dsa-2025-116-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities
 </div>
 
     CVE-2024-53296
     CVE-2024-49560
     CVE-2024-49561
+    CVE-2024-49563
+    CVE-2024-49564
+    CVE-2024-49565 
+    CVE-2025-23383 
+    CVE-2025-24380 
+    CVE-2025-24385
+    CVE-2025-24386
+    CVE-2024-49566
+    CVE-2025-24377 
+    CVE-2025-24378
+    CVE-2025-24379
