@@ -21,6 +21,8 @@ title: Achievement
 ## Aruba
 <div style="display:none"> 
 2024 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04678en_us&docLocale=en_US 
+2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04845en_us&docLocale=en_US
+2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04844en_us&docLocale=en_US
 </div>
 
     CVE-2023-45614
@@ -74,6 +76,12 @@ title: Achievement
     CVE-2024-47461
     CVE-2024-47462
     CVE-2024-47463
+    CVE-2025-27082
+    CVE-2025-27083
+    CVE-2025-27084
+    CVE-2025-27085
+    CVE-2025-27078
+    CVE-2025-27079
 
 ## Netgear
 
