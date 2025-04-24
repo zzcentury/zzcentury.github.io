@@ -3,41 +3,28 @@
 ## 1.背景介绍
 
 RG-BDS系列大数据安全平台提供了众多基于日志分析的强大功能，如安全日志的集中采集、分析挖掘、合规审计、实时监控及安全告警等，系统配备了全球IP归属及地理位置信息数据，为安全事件的分析、溯源提供了有力支撑，日志审计系统能够同时满足企业实际运维分析需求及审计合规需求，是企业日常信息安全工作的重要支撑平台。<br>
-
-
-
 基于本文撰写时官网能下到的最新版固件进行研究。<br>
-
 最新版本固件：20230822144639_RG-BDS-C_V5.2-R5.16.P5.b5.20230805.008063.zip
 
 ## 2.固件解密
 
 最新版固件下载下来后，发现固件被加密了。需要想办法先将固件进行解密。<br>
-
 <img src="./Images/image-20240428170318749.png" alt="image-20240428170318749" style="zoom: 80%;" />
-
 从历史版本中发现最开始提供的固件是iso后缀，固件并没有加密，于是猜测是从中间某一个版本才开始将固件进行加密的。<br>
-
 于是定位到最新的未加密固件。<br>
-
 最新的未加密固件：RG-BDS-C-V5.2-R5.16.P5.b4.20220910.008030-5297.iso
 
 ### 2.1 安装 ISO
 
 RG-BDS-C-V5.2-R5.16.P5.b4.20220910.008030-5297.iso 是一个Centos 6 系统镜像，利用vmware将它安装运行。<br>
-
 给它分配了200GB硬盘，8GB内存，8核心。<br>
-
 在安装时注意到它被设置了静态ip:192.168.0.100，所以新建了一个vmware网络适配器，ip段为192.168.0.0。<br>
-
 安装成功后就可以通过 https://192.168.0.100:8082 访问硬件管理界面。<br>
-
 <img src="./Images/image-20240428171231970.png" alt="image-20240428171231970" style="zoom:80%;" />
 
 ### 2.2 获取虚拟机的root shell
 
 获取虚拟机root shell的参考文章：https://zzcentury.github.io/blogs/GetRootShell (通过虚拟机调试获取Root Shell)<br>
-
 在内核函数do_execve下条件断点，匹配参数为/bin/sh -c xxx的函数调用：<br>
 
 ```
@@ -55,9 +42,7 @@ set {char [116]} 0x0000000001145a10 = "sleep 10;killall -9 sshd;cd /tmp; wget 19
 ### 2.3 定位解密代码
 
 首先定位到<br>
-
 JUMING-SMC-class-2.0.jar:com/juminfo/smc/modules/systemManage/action/UpgradeAction.class 文件。<br>
-
 分析addSysUpgradeLog函数。<br>
 
 ```
@@ -133,7 +118,6 @@ JUMING-SMC-class-2.0.jar:com/juminfo/smc/modules/systemManage/action/UpgradeActi
 ```
 
 这个函数会计算上传的加密固件的MD5，做一次校验。<br>
-
 之后会执行：<br>
 
 ```
@@ -141,7 +125,6 @@ this.f1873.sendMessage("SMC.SYSUPDATE.NOTICE", hashMap);
 ```
 
 猜测是系统内有某个服务来解密固件。<br>
-
 于是在/opt目录下搜索"SMC.SYSUPDATE.NOTICE"字符串：<br>
 
 ```
@@ -199,7 +182,6 @@ __int64 __fastcall loadPackage(__int64 a1, const std::string **a2, unsigned int 
 ```
 
 loadPackage函数会调用common::decrypt_file函数对固件进行解密。<br>
-
 common::decrypt_file函数位于/opt/smc/lib/libcommonEncrypt.so文件中。<br>
 
 ```
@@ -239,7 +221,6 @@ __int64 __fastcall common::DecryptFile(common *this, char *a2, char *a3)
 ```
 
 函数第一个参数为加密固件文件路径，第二个参数为解密后的固件路径。<br>
-
 于是写一段代码去调用这个函数。<br>
 
 ```
@@ -293,11 +274,8 @@ int main(int argc, char *argv[]){
 ## 3.更新固件
 
 由于本人没有将license逻辑分析清楚并进行解密，所以无法进入 https://192.168.0.100:8443 上传固件进行更新。<br>
-
 <img src="./Images/image-20240429083120912.png" alt="image-20240429083120912" style="zoom: 67%;" />
-
 所以只能将解密后的固件复制到系统中进行手动更新。<br>
-
 解密后的固件目录如下：<br>
 
 ```
@@ -311,7 +289,6 @@ int main(int argc, char *argv[]){
 ```
 
 web_upgrade.zip，collector_upgrade.zip，core_upgrade.zip就是补丁包。<br>
-
 每一个zip文件中都有一个Upgrade.sh脚本，解压一个zip，执行一次Upgrade.sh就可以更新固件成功。<br>
 
 ```
@@ -337,9 +314,7 @@ export PATH=$PATH:/tmp/Mine/core_upgrade/:/sbin
 ## 4.JAR解密
 
 将新版本的jar包进行分析时，发现函数都没有解析出来。<br>
-
 ![image-20240429083839876](./Images/image-20240429083839876.png)
-
 可见新版本对jar包进行了加密处理。<br>
 
 ### 4.1 定位加密代码
@@ -351,7 +326,6 @@ java -Djava.util.logging.config.file=/opt/smc/web/tomcat/conf/logging.properties
 ```
 
 发现多了一个/opt/smc/hardware/sbin/encryptclass-execute-1.1.jar文件。<br>
-
 定位到decrypt函数。<br>
 
 ```
@@ -377,7 +351,6 @@ decrypt函数会将每个class文件进行解密处理。<br>
 ### 4.2 解密class文件
 
 将decrypt函数逻辑单独抽出来。<br>
-
 这里只列出部分代码：<br>
 
 ```
@@ -551,5 +524,4 @@ decode_class(root_path)
 ## 6.后记
 
 本次研究从调试环境搭建，到固件解密，再到JAR包解密，最终进行最新版的漏洞挖掘。这一顿操作下来，还是蛮有成就感的。遗憾的是没有成功将license逻辑分析清楚并进行解密。<br>
-
 后续去fofa搜索的时候，发现国内起码有6个以上不同的安全厂商，都使用了这一份代码，看代码源头厂商应该是聚铭，感觉挺有趣的。<br>
