@@ -10,7 +10,7 @@ RG-BDS系列大数据安全平台提供了众多基于日志分析的强大功�
 
 最新版固件下载下来后，发现固件被加密了。需要想办法先将固件进行解密。<br>
 <img src="./Images/image-20240428170318749.png" alt="image-20240428170318749" style="zoom: 80%;" />
-从历史版本中发现最开始提供的固件是iso后缀，固件并没有加密，于是猜测是从中间某一个版本才开始将固件进行加密的。<br>
+<br>从历史版本中发现最开始提供的固件是iso后缀，固件并没有加密，于是猜测是从中间某一个版本才开始将固件进行加密的。<br>
 于是定位到最新的未加密固件。<br>
 最新的未加密固件：RG-BDS-C-V5.2-R5.16.P5.b4.20220910.008030-5297.iso
 
@@ -133,7 +133,6 @@ Binary file /opt/smc/monitor/bin/mon_server matches
 ```
 
 定位到/opt/smc/monitor/bin/mon_server文件。<br>
-
 可以在/opt/smc/monitor/bin/mon_server文件找到loadPackage函数。<br>
 
 ```
@@ -275,7 +274,7 @@ int main(int argc, char *argv[]){
 
 由于本人没有将license逻辑分析清楚并进行解密，所以无法进入 https://192.168.0.100:8443 上传固件进行更新。<br>
 <img src="./Images/image-20240429083120912.png" alt="image-20240429083120912" style="zoom: 67%;" />
-所以只能将解密后的固件复制到系统中进行手动更新。<br>
+<br>所以只能将解密后的固件复制到系统中进行手动更新。<br>
 解密后的固件目录如下：<br>
 
 ```
@@ -315,7 +314,7 @@ export PATH=$PATH:/tmp/Mine/core_upgrade/:/sbin
 
 将新版本的jar包进行分析时，发现函数都没有解析出来。<br>
 ![image-20240429083839876](./Images/image-20240429083839876.png)
-可见新版本对jar包进行了加密处理。<br>
+<br>可见新版本对jar包进行了加密处理。<br>
 
 ### 4.1 定位加密代码
 
