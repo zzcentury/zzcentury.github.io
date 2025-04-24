@@ -7,6 +7,9 @@ title: Blogs
 ## Blogs
 
 <!-- - [CVE](https://zzcentury.github.io/blogs/Achievement) -->
+### 2025
+
+- [2025.04.24 某捷 RG-BDS-C 大数据安全平台漏洞挖掘](https://zzcentury.github.io/blogs/RG-BDS-C)
 
 ### 2024
 
