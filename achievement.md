@@ -21,8 +21,8 @@ title: Achievement
 ## Aruba
 <div style="display:none"> 
 2024 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04678en_us&docLocale=en_US 
-2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04845en_us&docLocale=en_US
-2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04844en_us&docLocale=en_US
+2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04845en_us&docLocale=en_US 3
+2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04844en_us&docLocale=en_US 2
 </div>
 
     CVE-2023-45614
@@ -96,8 +96,8 @@ title: Achievement
 <div style="display:none"> 
 2024 https://www.dell.com/support/kbdoc/en-ph/000247217/dsa-2024-425-security-update-for-dell-networking-os10-vulnerabilities
 2024 https://www.dell.com/support/kbdoc/en-us/000279157/dsa-2025-022-security-update-for-dell-powerprotect-dd-multiple-vulnerabilities   
-2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities 
-2025 https://www.dell.com/support/kbdoc/en-us/000300090/dsa-2025-116-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities
+2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities 1
+2025 https://www.dell.com/support/kbdoc/en-us/000300090/dsa-2025-116-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 11
 </div>
 
     CVE-2024-53296
