@@ -23,6 +23,7 @@ title: Achievement
 2024 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04678en_us&docLocale=en_US 
 2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04845en_us&docLocale=en_US 3
 2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04844en_us&docLocale=en_US 2
+2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04894en_us&docLocale=en_US 2
 </div>
 
     CVE-2023-45614
@@ -81,6 +82,8 @@ title: Achievement
     CVE-2025-27085
     CVE-2025-27078
     CVE-2025-27079
+    CVE-2025-37103
+    CVE-2025-37102
 
 ## Netgear
 
