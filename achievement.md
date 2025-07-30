@@ -102,6 +102,7 @@ title: Achievement
 2025 https://www.dell.com/support/kbdoc/en-us/000295014/dsa-2025-068-security-update-for-dell-networking-os10-vulnerabilities 1
 2025 https://www.dell.com/support/kbdoc/en-us/000300090/dsa-2025-116-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 11
 2025 https://www.dell.com/support/kbdoc/en-us/000317318/dsa-2025-191-security-update-for-storage-center-dell-storage-manager-vulnerabilities 1
+2025 https://www.dell.com/support/kbdoc/zh-cn/000349609/dsa-2025-304-security-update-for-dell-powerprotect-data-manager-multiple-security-vulnerabilities 1
 </div>
 
     CVE-2024-53296
@@ -119,3 +120,4 @@ title: Achievement
     CVE-2025-24378
     CVE-2025-24379
     CVE-2025-22476
+    CVE-2025-30480
