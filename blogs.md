@@ -9,6 +9,7 @@ title: Blogs
 <!-- - [CVE](https://zzcentury.github.io/blogs/Achievement) -->
 ### 2025
 
+- [2025.10.27 HPE Aruba instant-on Access Points系列产品未授权RCE](https://zzcentury.github.io/blogs/HPE_Aruba_AP_Unauthorized_RCE)
 - [2025.04.24 某捷 RG-BDS-C 大数据安全平台漏洞挖掘](https://zzcentury.github.io/blogs/RG-BDS-C)
 
 ### 2024
