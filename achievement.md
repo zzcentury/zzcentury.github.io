@@ -122,6 +122,7 @@ title: Achievement
 2025 https://www.dell.com/support/kbdoc/en-us/000346195/dsa-2025-259-security-update-for-dell-networking-os10-vulnerabilities 1
 2025 https://www.dell.com/support/kbdoc/en-si/000350756/dsa-2025-281-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 2
 2025 https://www.dell.com/support/kbdoc/en-in/000372457/dsa-2025-354-security-update-for-dell-cloud-disaster-recovery-rce-vulnerability 1
+2025 https://www.dell.com/support/kbdoc/en-us/000385307/dsa-2025-379-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 6
 </div>
 
     CVE-2024-53296
@@ -144,3 +145,9 @@ title: Achievement
     CVE-2025-36606
     CVE-2025-36607
     CVE-2025-43943
+    CVE-2025-43941 
+    CVE-2025-46423
+    CVE-2025-46422
+    CVE-2025-43942
+    CVE-2025-43940
+    CVE-2025-43939
