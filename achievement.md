@@ -137,6 +137,7 @@ title: Achievement
 2025 https://www.dell.com/support/kbdoc/en-us/000384363/dsa-2025-374-security-update-for-dell-cloudlink-multiple-security-vulnerabilities 1
 2025 https://www.dell.com/support/kbdoc/en-us/000405813/dsa-2025-415-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities 4
 2025 https://www.dell.com/support/kbdoc/en-us/000376224/dsa-2025-333-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities
+2026 https://www.dell.com/support/kbdoc/en-us/000421197/dsa-2026-054-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 2
 </div>
 
     CVE-2024-53296
@@ -144,12 +145,12 @@ title: Achievement
     CVE-2024-49561
     CVE-2024-49563
     CVE-2024-49564
-    CVE-2024-49565 
+    CVE-2024-49565
+    CVE-2024-49566 
     CVE-2025-23383 
     CVE-2025-24380 
     CVE-2025-24385
     CVE-2025-24386
-    CVE-2024-49566
     CVE-2025-24377 
     CVE-2025-24378
     CVE-2025-24379
@@ -170,3 +171,5 @@ title: Achievement
     CVE-2025-46645
     CVE-2025-46676
     CVE-2025-46643
+    CVE-2026-21418
+    CVE-2026-22277
