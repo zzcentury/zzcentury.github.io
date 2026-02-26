@@ -138,6 +138,8 @@ title: Achievement
 2025 https://www.dell.com/support/kbdoc/en-us/000405813/dsa-2025-415-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities 4
 2025 https://www.dell.com/support/kbdoc/en-us/000376224/dsa-2025-333-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities
 2026 https://www.dell.com/support/kbdoc/en-us/000421197/dsa-2026-054-security-update-for-dell-unity-dell-unityvsa-and-dell-unity-xt-security-update-for-multiple-vulnerabilities 2
+2025 https://www.dell.com/support/kbdoc/en-us/000347698/dsa-2025-271-security-update-for-dell-avamar-and-dell-avamar-virtual-edition-multiple-vulnerabilities 3
+2026 https://www.dell.com/support/kbdoc/en-us/000425796/dsa-2026-053-security-update-for-dell-avamar-server-and-dell-avamar-virtual-edition-improper-limitation-of-a-pathname-to-a-restricted-directory-path-traversal-vulnerability 1
 </div>
 
     CVE-2024-53296
@@ -173,3 +175,7 @@ title: Achievement
     CVE-2025-46643
     CVE-2026-21418
     CVE-2026-22277
+    CVE-2026-22762
+    CVE-2025-21120
+    CVE-2025-36598
+    CVE-2025-36597
