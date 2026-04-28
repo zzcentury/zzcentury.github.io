@@ -9,7 +9,7 @@ title: Blogs
 <!-- - [CVE](https://zzcentury.github.io/blogs/Achievement) -->
 ### 2026 
 
-- [2026.04.28 HPE Aruba instant-on Access Points系列产品未授权RCE](https://zzcentury.github.io/blogs/Windows_FILE_LPE.md)
+- [2026.04.28 Windows下一种任意文件移动/复制/创建到本地提权的方法](https://zzcentury.github.io/blogs/Windows_FILE_LPE)
 
 ### 2025
 
