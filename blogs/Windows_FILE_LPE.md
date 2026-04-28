@@ -11,9 +11,9 @@
 ## 细节
 
 RasMan服务存在RPC方法RasRpcSubmitRequest,具体是由rasmans.dll中的RasRpcSubmitRequest函数进行处理的.<br>
-
+<br>
 ![win_file_lpe.png](./Images/win_file_lpe.png)<br>
-
+<br>
 RasRpcSubmitRequest函数会进一步调用ServiceRequestInternal函数,ServiceRequestInternal函数中会根据传入的函数索性从函数表RequestCallTable中取出对应的处理函数进行调用.<br>
 
 ```
