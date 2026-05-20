@@ -141,6 +141,7 @@ title: Achievement
 2025 https://www.dell.com/support/kbdoc/en-us/000347698/dsa-2025-271-security-update-for-dell-avamar-and-dell-avamar-virtual-edition-multiple-vulnerabilities 3
 2026 https://www.dell.com/support/kbdoc/en-us/000425796/dsa-2026-053-security-update-for-dell-avamar-server-and-dell-avamar-virtual-edition-improper-limitation-of-a-pathname-to-a-restricted-directory-path-traversal-vulnerability 1
 2026 https://www.dell.com/support/kbdoc/en-us/000450699/dsa-2026-060-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities 2
+2026 https://www.dell.com/support/kbdoc/en-us/000466942/dsa-2026-235-security-update-for-dell-networking-smartfabric-storage-software-vulnerabilities 1
 </div>
 
     CVE-2024-53296
@@ -182,3 +183,4 @@ title: Achievement
     CVE-2025-36597
     CVE-2026-23774
     CVE-2026-24506
+    CVE-2026-35070
