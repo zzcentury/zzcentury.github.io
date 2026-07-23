@@ -29,6 +29,7 @@ title: Achievement
 2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04888en_us&docLocale=en_US 2
 2025 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw04987en_us&docLocale=en_US 7
 2026 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05048en_us&docLocale=en_US 22
+2026 https://support.hpe.com/hpesc/public/docDisplay?docId=hpesbnw05081en_us&docLocale=en_US 1
 </div>
 
     CVE-2023-45614
@@ -134,7 +135,8 @@ title: Achievement
     CVE-2026-44871
     CVE-2026-44872
     CVE-2026-44874
-
+    CVE-2026-63453
+    
 ## Netgear
 
     PSV-2023-0067
@@ -165,6 +167,7 @@ title: Achievement
 2026 https://www.dell.com/support/kbdoc/en-us/000425796/dsa-2026-053-security-update-for-dell-avamar-server-and-dell-avamar-virtual-edition-improper-limitation-of-a-pathname-to-a-restricted-directory-path-traversal-vulnerability 1
 2026 https://www.dell.com/support/kbdoc/en-us/000450699/dsa-2026-060-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities 2
 2026 https://www.dell.com/support/kbdoc/en-us/000466942/dsa-2026-235-security-update-for-dell-networking-smartfabric-storage-software-vulnerabilities 1
+2026 https://www.dell.com/support/kbdoc/en-us/000481268/dsa-2026-278-security-update-for-dell-powerprotect-data-domain-multiple-vulnerabilities 3
 </div>
 
     CVE-2024-53296
@@ -207,3 +210,6 @@ title: Achievement
     CVE-2026-23774
     CVE-2026-24506
     CVE-2026-35070
+    CVE-2026-26355
+    CVE-2026-54483
+    CVE-2026-53478
